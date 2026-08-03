@@ -1,10 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Briefcase, Users, FileText, MessageSquare, ArrowRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
 import { cn } from "@/shared/lib/utils";
+
+interface AnimatedCounterProps {
+  value: number;
+  decimals?: number;
+  suffix: string;
+}
+
+function AnimatedCounter({ value, decimals = 0, suffix }: AnimatedCounterProps) {
+  const [currentValue, setCurrentValue] = useState(0);
+
+  useEffect(() => {
+    const duration = 1400;
+    const startTime = performance.now();
+    let animationFrame = 0;
+
+    const animate = (timestamp: number) => {
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+      setCurrentValue(value * easedProgress);
+
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
+
+    animationFrame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [value]);
+
+  return (
+    <>
+      {currentValue.toLocaleString("ru-RU", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      })}
+      {suffix}
+    </>
+  );
+}
 
 const heroActions = [
   {
@@ -49,13 +89,13 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#5AB4E6]/8 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
       <div className="container relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Текст */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6"
+            className="min-w-0 space-y-6"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1628] leading-tight pt-4">
               Центр занятости населения{" "}
@@ -80,20 +120,24 @@ export function Hero() {
             </div>
 
             {/* Статистика */}
-            <div className="flex flex-wrap gap-8 pt-6 border-t border-gray-200">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-5 pt-6 border-t border-gray-200 sm:grid-cols-4 sm:gap-5">
               {[
-                { value: "5 000+", label: "Актуальных вакансий" },
-                { value: "0,4%",   label: "Уровень безработицы" },
-                { value: "12 000+",label: "Граждан трудоустроено" },
+                { value: 14.4, decimals: 1, suffix: " тыс.", label: "обращений с начала года" },
+                { value: 7.7, decimals: 1, suffix: " тыс. (53,2%)", label: "граждан трудоустроено" },
+                { value: 84.4, decimals: 1, suffix: " тыс.", label: "вакансий на платформе «Работа России»" },
+                { value: 3722, suffix: " чел.", label: "численность безработных граждан" },
               ].map((s, i) => (
                 <motion.div
                   key={s.label}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.2 + i * 0.1 }}
+                  className="min-w-0"
                 >
-                  <div className="text-3xl font-bold text-[#0050AA]">{s.value}</div>
-                  <div className="text-sm text-[#7A96B4]">{s.label}</div>
+                  <div className="text-2xl font-bold leading-tight text-[#0050AA] sm:text-3xl">
+                    <AnimatedCounter value={s.value} decimals={s.decimals} suffix={s.suffix} />
+                  </div>
+                  <div className="text-xs leading-snug text-[#7A96B4] sm:text-sm">{s.label}</div>
                 </motion.div>
               ))}
             </div>
@@ -104,7 +148,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2"
           >
             {heroActions.map((action, index) => {
               const Icon = action.icon;
@@ -118,7 +162,7 @@ export function Hero() {
                   <Link
                     href={action.href}
                     className={cn(
-                      "group relative block rounded-2xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl",
+                      "group relative block h-full rounded-2xl p-5 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl sm:p-6",
                       action.bg, action.hover
                     )}
                   >

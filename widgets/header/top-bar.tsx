@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Phone, Eye, Globe, User, ChevronDown } from "lucide-react";
+import { Glasses, Globe, User, ChevronDown } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
 const socialLinks = [
@@ -49,22 +49,31 @@ export function TopBar() {
   return (
     <div className="border-b border-[#0050AA]/10 bg-[#F4F7FB]">
       <div className="container">
-        <div className="flex h-10 items-center justify-between text-xs text-[#3A5070]">
-          {/* Левая часть */}
-          <div className="flex items-center gap-4">
-            <Link href="tel:88001234567" className="flex items-center gap-1.5 hover:text-[#0050AA] transition-colors">
-              <Phone className="h-3.5 w-3.5" />
-              <span>8 800 123-45-67</span>
-              <span className="text-[#7A96B4]">(бесплатно)</span>
-            </Link>
-            <span className="h-3.5 w-px bg-gray-300" />
-            <Link href="/contacts" className="hover:text-[#0050AA] transition-colors">
-              Контакты
-            </Link>
+        <div className="flex min-h-10 items-center justify-between gap-4 py-2 text-xs text-[#3A5070]">
+          {/* Контактная информация */}
+          <div className="grid w-full grid-cols-2 items-center gap-x-3 gap-y-2 sm:grid-cols-3 sm:gap-8 xl:w-auto">
+            <a href="tel:+78432220557" className="group min-w-0">
+              <span className="block truncate text-[11px] font-semibold text-[#23416B] group-hover:text-[#0050AA] transition-colors sm:whitespace-nowrap sm:text-xs">
+                +7 (843) 222-05-57
+              </span>
+              <span className="hidden text-[10px] leading-tight text-[#7A96B4] sm:block">Контакт-центр</span>
+            </a>
+            <a href="mailto:CZN_g_Kazan@tatar.ru" className="group col-span-1 min-w-0 sm:col-span-1">
+              <span className="block truncate font-semibold text-[#23416B] group-hover:text-[#0050AA] transition-colors sm:whitespace-nowrap">
+                CZN_g_Kazan@tatar.ru
+              </span>
+              <span className="hidden text-[10px] leading-tight text-[#7A96B4] sm:block">Электронная почта</span>
+            </a>
+            <a href="tel:+78435641111" className="group col-span-2 min-w-0 sm:col-span-1">
+              <span className="block truncate text-[11px] font-semibold text-[#23416B] group-hover:text-[#0050AA] transition-colors sm:whitespace-nowrap sm:text-xs">
+                8 (843) 564-11-11 (Trud.SVO@tatar.ru)
+              </span>
+              <span className="hidden text-[10px] leading-tight text-[#7A96B4] sm:block">Телефон горячей линии и электронная почта для участников СВО</span>
+            </a>
           </div>
 
           {/* Правая часть */}
-          <div className="flex items-center gap-3">
+          <div className="hidden items-center gap-3 2xl:flex">
             {/* Социальные сети */}
             <div className="hidden sm:flex items-center gap-2">
               {socialLinks.map((s) => (
@@ -83,9 +92,15 @@ export function TopBar() {
             <span className="hidden sm:block h-3.5 w-px bg-gray-300" />
 
             {/* Версия для слабовидящих */}
-            <button className="hidden md:flex items-center gap-1.5 hover:text-[#0050AA] transition-colors" aria-label="Версия для слабовидящих">
-              <Eye className="h-3.5 w-3.5" />
+            <button
+              className="hidden md:flex items-center gap-2 rounded-sm bg-[#DDEFFC] pl-2 text-[#102A43] hover:bg-[#C8E6FA] transition-colors"
+              aria-label="Версия для слабовидящих"
+              type="button"
+            >
               <span>Для слабовидящих</span>
+              <span className="flex h-9 w-12 items-center justify-center bg-[#0050AA] text-[#9CC8F2]">
+                <Glasses className="h-6 w-6" strokeWidth={1.8} />
+              </span>
             </button>
             <span className="hidden md:block h-3.5 w-px bg-gray-300" />
 
@@ -113,10 +128,10 @@ export function TopBar() {
             <span className="h-3.5 w-px bg-gray-300" />
 
             {/* Личный кабинет */}
-            <Link href="/profile" className="flex items-center gap-1.5 rounded-lg bg-[#0050AA] px-3 py-1 text-white hover:bg-[#003D82] transition-colors">
+            <a href="https://esia.gosuslugi.ru/login/" className="flex items-center gap-1.5 rounded-lg bg-[#0050AA] px-3 py-1 text-white hover:bg-[#003D82] transition-colors">
               <User className="h-3.5 w-3.5" />
-              <span>Войти</span>
-            </Link>
+              <span>Личный кабинет</span>
+            </a>
           </div>
         </div>
       </div>

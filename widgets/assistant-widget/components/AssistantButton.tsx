@@ -52,7 +52,7 @@ export const AssistantButton = ({
               <X size={16} />
             </button>
             <p className="text-sm text-gray-700 leading-relaxed pr-8">
-              Здравствуйте! Я помогу разобраться с сервисами Центра занятости.
+              Здравствуйте! Я Лилия, виртуальный помощник Центра занятости. Помогу разобраться с услугами и поддержкой.
             </p>
             {/* Стрелочка-указатель к кнопке */}
             <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-blue-100 rotate-45" />

@@ -28,20 +28,24 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
         <div className="border-b border-gray-100">
           <div className="container">
             <div className="flex h-16 items-center gap-4">
-              {/* Logo */}
-              <Link href="/" className="flex items-center gap-3 shrink-0">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#0050AA]">
-                  <svg className="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <div className="hidden sm:block">
-                  <div className="text-sm font-bold leading-none text-[#0A1628]">ЦЗН РТ</div>
-                  <div className="text-xs leading-tight text-[#3A5070] mt-0.5">Центр занятости населения</div>
-                </div>
+              {/* Логотип «Работа России» */}
+              <Link href="/" className="flex h-full items-center shrink-0" aria-label="Работа России — на главную">
+                <svg
+                  className="h-14 w-[116px] sm:h-16 sm:w-[140px]"
+                  viewBox="0 0 150 205"
+                  role="img"
+                  aria-labelledby="russia-work-logo-title"
+                >
+                  <title id="russia-work-logo-title">Работа России</title>
+                  <g fill="#F04423">
+                    <path d="M54 5 96 30 54 55Z" />
+                    <path d="M15 47 57 72 15 97Z" />
+                    <path d="m94 47 42 25-42 25Z" />
+                    <path d="m54 89 42 25-42 25Z" />
+                  </g>
+                  <text x="54" y="157" fill="#0755A0" fontFamily="Arial, sans-serif" fontSize="30" fontWeight="700" letterSpacing="-1">РАБОТА</text>
+                  <text x="54" y="188" fill="#0755A0" fontFamily="Arial, sans-serif" fontSize="30" fontWeight="700" letterSpacing="-1">РОССИИ</text>
+                </svg>
               </Link>
 
               {/* Mega Menu */}

@@ -61,10 +61,10 @@ export function MobileMenu({ isOpen, onClose }: { isOpen: boolean; onClose: () =
         </div>
 
         <div className="border-t border-gray-100 p-4 space-y-3">
-          <Link href="/profile" onClick={onClose} className="flex items-center gap-2 w-full justify-center rounded-xl bg-[#0050AA] px-4 py-3 text-sm font-medium text-white hover:bg-[#003D82] transition-colors">
+          <a href="https://esia.gosuslugi.ru/login/" onClick={onClose} className="flex items-center gap-2 w-full justify-center rounded-xl bg-[#0050AA] px-4 py-3 text-sm font-medium text-white hover:bg-[#003D82] transition-colors">
             <User className="h-4 w-4" />
             Личный кабинет
-          </Link>
+          </a>
           <a href="tel:88001234567" className="flex items-center gap-2 w-full justify-center rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-[#3A5070] hover:bg-gray-50 transition-colors">
             <Phone className="h-4 w-4" />
             8 800 123-45-67

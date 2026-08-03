@@ -19,7 +19,7 @@ export const AssistantHeader = ({ onClose, onMinimize }: AssistantHeaderProps) =
           <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full" />
         </div>
         <div>
-          <h3 className="font-semibold text-gray-900 leading-tight">Айдар</h3>
+          <h3 className="font-semibold text-gray-900 leading-tight">Лилия</h3>
           <div className="flex items-center gap-1">
             <span className="text-[10px] text-green-600 font-medium">Онлайн</span>
             <span className="text-gray-300">•</span>

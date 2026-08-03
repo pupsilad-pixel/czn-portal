@@ -26,19 +26,19 @@ const INITIAL_MESSAGES: Message[] = [
   {
     id: "1",
     role: "assistant",
-    content: "Здравствуйте!",
+    content: "Здравствуйте! Я Лилия, ваш виртуальный помощник.",
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
   },
   {
     id: "2",
     role: "assistant",
-    content: "Я виртуальный помощник Центра занятости населения по Республике Татарстан.",
+    content: "Я помогу сориентироваться в услугах Центра занятости населения Республики Татарстан.",
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
   },
   {
     id: "3",
     role: "assistant",
-    content: "Помогу найти нужную услугу, вакансию или ответ на вопрос.",
+    content: "Выберите подходящую тему ниже или напишите свой вопрос.",
     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
   },
 ];
