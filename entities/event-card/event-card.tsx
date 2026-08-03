@@ -33,7 +33,7 @@ export function EventCard({ event, index = 0 }: EventCardProps) {
         className="group flex flex-col md:flex-row gap-5 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-transparent"
       >
         {/* Изображение */}
-        <div className="relative h-40 md:h-auto md:w-48 shrink-0 overflow-hidden rounded-xl">
+        <div className="relative h-40 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-xl">
           <img
             src={event.image}
             alt={event.title}
