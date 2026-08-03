@@ -28,8 +28,17 @@ export function Header({ transparent = false }: { transparent?: boolean }) {
         <div className="border-b border-gray-100">
           <div className="container">
             <div className="flex h-16 items-center gap-4">
-              {/* Логотип «Работа России» */}
-              <Link href="/" className="flex h-full items-center shrink-0" aria-label="Работа России — на главную">
+              {/* Логотип «Работа России» — переход к началу главной */}
+              <Link
+                href="/"
+                onClick={() => {
+                  if (typeof window !== "undefined") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className="flex h-full items-center shrink-0"
+                aria-label="Работа России — на главную"
+              >
                 <svg
                   className="h-14 w-[116px] sm:h-16 sm:w-[140px]"
                   viewBox="0 0 150 205"
