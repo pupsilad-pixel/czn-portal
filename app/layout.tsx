@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { AssistantWidget } from "@/widgets/assistant-widget/assistant-widget";
@@ -8,6 +8,27 @@ const inter = Inter({
   variable: "--font-geist-sans",
   display: "swap",
 });
+
+// === Viewport ===
+// Явная конфигурация мета-тега viewport обеспечивает корректное
+// масштабирование на мобильных устройствах (iOS Safari/Android Chrome).
+// Без этого тега страница отображается как на 980px и уменьшается,
+// из-за чего медиа-запросы работают некорректно.
+//
+// Поля:
+// - width=device-width: ширина равна ширине устройства (не 980px)
+// - initialScale=1: начальный масштаб 100% (без зума)
+// - maximumScale=5: разрешаем zoom до 5x (accessibility, WCAG)
+// - userScalable=true: пользователь может масштабировать (accessibility)
+// - themeColor: цвет адресной строки на мобильных (брендовый синий)
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#0050AA",
+  colorScheme: "light",
+};
 
 export const metadata: Metadata = {
   title: "Центр занятости населения Республики Татарстан | ЦЗН РТ",
