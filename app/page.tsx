@@ -8,6 +8,7 @@ import { EventsSection } from "@/widgets/events-section/events-section";
 import { ProjectsSection } from "@/widgets/projects-section/projects-section";
 import { MaterialsSection } from "@/widgets/materials-section/materials-section";
 import { PartnersSection } from "@/widgets/partners-section/partners-section";
+import { FaqSection } from "@/widgets/faq-section/faq-section";
 import { Footer } from "@/widgets/footer/footer";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
         <ProjectsSection />
         <MaterialsSection />
         <PartnersSection />
+        <FaqSection />
       </main>
 
       <Footer />
