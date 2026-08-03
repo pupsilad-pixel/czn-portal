@@ -2,38 +2,28 @@ import type { NavItem } from "@/shared/types";
 
 export const mainNavigation: NavItem[] = [
   {
-    title: "Гражданам",
+    title: "Соискателям",
     href: "/citizens",
     items: [
       {
-        title: "Поиск работы",
+        title: "Поиск вакансий",
         href: "/jobs",
         description: "Актуальные вакансии по всей республике",
       },
       {
-        title: "Постановка на учёт",
-        href: "/registration",
-        description: "Регистрация в качестве безработного",
+        title: "Меры поддержки",
+        href: "/support",
+        description: "Государственная поддержка граждан",
       },
       {
-        title: "Профессиональное обучение",
-        href: "/training",
-        description: "Бесплатные курсы переподготовки и повышения квалификации",
+        title: "Запись на приём",
+        href: "/appointment",
+        description: "Онлайн-запись к специалисту",
       },
       {
-        title: "Самозанятость",
-        href: "/self-employment",
-        description: "Помощь в открытии собственного дела",
-      },
-      {
-        title: "Молодым специалистам",
-        href: "/youth",
-        description: "Программы для выпускников и молодёжи",
-      },
-      {
-        title: "Гражданам с инвалидностью",
-        href: "/disability",
-        description: "Специализированная помощь в трудоустройстве",
+        title: "Подать обращение",
+        href: "/appeals",
+        description: "Электронное обращение в центр занятости",
       },
     ],
   },
@@ -42,45 +32,14 @@ export const mainNavigation: NavItem[] = [
     href: "/employers",
     items: [
       {
-        title: "Подбор персонала",
+        title: "Поиск резюме",
         href: "/recruitment",
-        description: "Поиск квалифицированных кадров",
+        description: "Поиск квалифицированных специалистов",
       },
       {
-        title: "Разместить вакансию",
-        href: "/post-vacancy",
-        description: "Публикация вакансий на портале",
-      },
-      {
-        title: "Государственная поддержка",
+        title: "Меры поддержки",
         href: "/subsidies",
         description: "Субсидии и программы поддержки работодателей",
-      },
-      {
-        title: "Ярмарки вакансий",
-        href: "/job-fairs",
-        description: "Участие в мероприятиях по подбору персонала",
-      },
-      {
-        title: "Квотирование рабочих мест",
-        href: "/quotas",
-        description: "Квоты для трудоустройства инвалидов",
-      },
-    ],
-  },
-  {
-    title: "Сервисы",
-    href: "/services",
-    items: [
-      {
-        title: "Электронные услуги",
-        href: "/services/online",
-        description: "Получение услуг в электронном виде",
-      },
-      {
-        title: "Личный кабинет",
-        href: "/profile",
-        description: "Управление заявками и документами",
       },
       {
         title: "Запись на приём",
@@ -88,14 +47,40 @@ export const mainNavigation: NavItem[] = [
         description: "Онлайн-запись к специалисту",
       },
       {
-        title: "Карьерное консультирование",
-        href: "/career-consulting",
-        description: "Помощь в построении карьеры",
+        title: "Подать обращение",
+        href: "/appeals",
+        description: "Электронное обращение в центр занятости",
       },
     ],
   },
   {
-    title: "Новости и события",
+    title: "Участникам СВО",
+    href: "/svo",
+    items: [
+      {
+        title: "Вакансии",
+        href: "/svo/jobs",
+        description: "Актуальные вакансии для участников СВО",
+      },
+      {
+        title: "Меры поддержки",
+        href: "/svo/support",
+        description: "Государственная поддержка участников СВО",
+      },
+      {
+        title: "Содействие предпринимательской деятельности",
+        href: "/svo/business",
+        description: "Помощь в открытии и ведении собственного дела",
+      },
+      {
+        title: "Сведения о мерах налоговой поддержки",
+        href: "/svo/tax-support",
+        description: "Налоговые льготы и преференции",
+      },
+    ],
+  },
+  {
+    title: "Новости и мероприятия",
     href: "/news",
   },
   {
@@ -107,24 +92,29 @@ export const mainNavigation: NavItem[] = [
     href: "/about",
     items: [
       {
-        title: "Структура",
-        href: "/structure",
-        description: "Организационная структура ЦЗН РТ",
+        title: "Контакт-центр: 8(843)222-05-57",
+        href: "tel:88432220557",
+        description: "Горячая линия центра занятости",
       },
       {
-        title: "Документы",
-        href: "/documents",
-        description: "Нормативно-правовые документы",
-      },
-      {
-        title: "Контакты",
+        title: "Адреса ЦЗН",
         href: "/contacts",
         description: "Адреса и телефоны центров занятости",
       },
       {
-        title: "FAQ",
-        href: "/faq",
-        description: "Часто задаваемые вопросы",
+        title: "Онлайн чат",
+        href: "/chat",
+        description: "Онлайн-консультант на сайте",
+      },
+      {
+        title: "Мы в соцсетях",
+        href: "/social",
+        description: "Наши официальные страницы",
+      },
+      {
+        title: "Анкетирование и опросы",
+        href: "/surveys",
+        description: "Оцените качество наших услуг",
       },
     ],
   },
