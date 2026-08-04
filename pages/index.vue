@@ -2,6 +2,7 @@
   <main>
     <Hero />
     <NewsSection />
+    <FaqSection />
     <CitizensSection />
     <EventsSection />
     <EmployersSection />
