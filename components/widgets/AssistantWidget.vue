@@ -4,7 +4,7 @@ import {
   MessageSquare, 
   X, 
   Send, 
-  Bot, 
+  UserRound, 
   Sparkles,
   ClipboardList,
   GraduationCap,
@@ -61,8 +61,9 @@ const toggleWidget = () => {
       <div class="bg-[#0050AA] p-5 text-white">
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-3">
-            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
-              <Bot class="h-6 w-6" />
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm relative overflow-hidden">
+              <UserRound class="h-6 w-6 relative z-10 translate-y-0.5" />
+              <div class="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent" />
             </div>
             <div>
               <div class="text-sm font-bold">Лилия</div>
@@ -84,8 +85,8 @@ const toggleWidget = () => {
       <!-- Сообщения -->
       <div class="flex-1 overflow-y-auto p-5 space-y-6 bg-gray-50/50">
         <div class="flex gap-3">
-          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0050AA] text-white">
-            <Bot class="h-4.5 w-4.5" />
+          <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0050AA] text-white overflow-hidden border border-blue-400/20">
+            <UserRound class="h-5 w-5 translate-y-0.5" />
           </div>
           <div class="rounded-2xl rounded-tl-none bg-white p-3 text-sm text-[#0A1628] shadow-sm border border-gray-100">
             Чем я могу вам помочь сегодня? Выберите тему или введите сообщение.
@@ -157,8 +158,8 @@ const toggleWidget = () => {
             <X class="h-3 w-3" />
           </button>
           <div class="flex gap-3">
-            <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0050AA] text-white">
-              <Bot class="h-4.5 w-4.5" />
+            <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0050AA] text-white overflow-hidden">
+              <UserRound class="h-5 w-5 translate-y-0.5" />
             </div>
             <div class="text-xs text-[#0A1628] leading-relaxed">
               Здравствуйте! Я <strong>Лилия</strong>. Нужна помощь в поиске работы или получении субсидий?
@@ -172,11 +173,14 @@ const toggleWidget = () => {
     <!-- Кнопка вызова -->
     <button
       @click="toggleWidget"
-      class="group flex h-14 w-14 items-center justify-center rounded-full bg-[#0050AA] text-white shadow-xl transition-all duration-300 hover:scale-110 hover:bg-[#003D82] active:scale-95"
+      class="group flex h-14 w-14 items-center justify-center rounded-full bg-[#0050AA] text-white shadow-xl transition-all duration-300 hover:scale-110 hover:bg-[#003D82] active:scale-95 relative overflow-hidden"
       :aria-label="isOpen ? 'Закрыть ассистента' : 'Открыть ассистента'"
     >
       <X v-if="isOpen" class="h-6 w-6" />
-      <MessageSquare v-else class="h-6 w-6" />
+      <div v-else class="flex flex-col items-center">
+        <UserRound class="h-7 w-7 translate-y-0.5" />
+        <div class="absolute bottom-0 w-full h-1/3 bg-white/10 blur-sm" />
+      </div>
       
       <!-- Тултип -->
       <div v-if="!isOpen" class="absolute right-16 hidden whitespace-nowrap rounded-lg bg-[#0A1628] px-3 py-1.5 text-xs font-medium text-white shadow-lg group-hover:block">
