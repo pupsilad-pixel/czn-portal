@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  ssr: false, // Возвращаем SPA mode для стабильной статической генерации без ошибок парсинга .vue файлов в нитро-пререндерере
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
