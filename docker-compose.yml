@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: czn-portal:latest
+    container_name: czn-portal
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:80/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
